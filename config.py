@@ -45,7 +45,7 @@ topic_list = [
     # P2E shit
     "nft", "gamefi",
     # Trading
-    "trading", "onchain", "analytics",
+    "trading", "onchain", "analytics", "defi",
     # Other
     "education", "news", "shitpost", "shitcoins", "memecoins"
 ]
@@ -94,13 +94,13 @@ Examples:
 BIO text to analyze:
 """
 
-theme_promt = f"""Analyze the following 10 messages from a Telegram channel and select 1 to 6 of the most relevant topics from the list below. If none of the topics are suitable, return the one that is most suitable.
+theme_promt = f"""Analyze the following 10 messages from a Telegram channel and select exactly 1 most relevant topic from the list below. If none of the topics are suitable, return the one that is most suitable.
 
 Topics: {topic_list}
 
 Return the result strictly as a single JSON string, without formatting or comments.
 
-Example: {{"theme": ["solana", "retrodrops"]}}
+Example: {{"theme": ["solana"]}}
 
 Here is the list of messages, numbered from 1 to 10: 
 """

@@ -15,6 +15,9 @@ client = Client(name="telegram-cleaner", api_id=API_ID, api_hash=API_HASH, phone
 async def main():
     async with client:
         async for dialog in client.get_dialogs():
+            if dialog.chat.type.value == "private":
+                continue
+
             if chat_table.get_data(chat_id=dialog.chat.id) is not None:
                 logger.success(f"[~] Already in DB {dialog.chat.id} - {dialog.chat.type.value}")
                 continue
